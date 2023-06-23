@@ -1,6 +1,8 @@
 ﻿// version .net 6 (long term support)
 using DesignPatterns.Factory.Interfaces;
 using DesignPatterns.Factory;
+using DesignPatterns.Builder.Models;
+using DesignPatterns.Builder;
 
 namespace DesignPatterns; // Note: actual namespace depends on the project name.
 
@@ -28,6 +30,14 @@ public class Program
         veggiePizza.Bake();
         veggiePizza.Cut();
         veggiePizza.Box();
+        #endregion
+
+        #region builder
+        var sportsCarBuilder = new SportsCarBuilder();
+        var director = new Director(sportsCarBuilder);
+
+        director.ConstructCar();
+        Car sportsCar = sportsCarBuilder.GetCar();
         #endregion
     }
 }
