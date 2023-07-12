@@ -46,9 +46,9 @@ Car sportsCar = sportsCarBuilder.GetCar();
 
 ## Prototype
 
-### The Prototype design pattern is useful when you need to create new objects based on existing ones, but with some differences. Instead of creating a new object from scratch, you can clone an existing object and modify its properties as needed. This can save time and reduce code duplication, especially when dealing with complex objects or object hierarchies.
+#### The Prototype design pattern is useful when you need to create new objects based on existing ones, but with some differences. Instead of creating a new object from scratch, you can clone an existing object and modify its properties as needed. This can save time and reduce code duplication, especially when dealing with complex objects or object hierarchies.
 
-### Here are some specific situations where the Prototype pattern might be useful:
+#### Here are some specific situations where the Prototype pattern might be useful:
 
 - When creating new objects is complex: If creating a new object requires a lot of initialization code or configuration, it can be more efficient to clone an existing object and modify its properties instead of starting from scratch.
 
