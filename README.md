@@ -41,3 +41,40 @@ Car sportsCar = sportsCarBuilder.GetCar();
 
 - In our example, you can see that the CarBuilder class separates the construction of the Car object from its representation, allowing you to create different types and representations of a car using the same construction code.
 -  The Director class provides a way to construct the car step-by-step, and the ConcreteBuilder class implements the steps to construct the car with specific features.
+
+-----------------------------------------------------------------------------------------------------------------
+
+## Prototype
+
+### The Prototype design pattern is useful when you need to create new objects based on existing ones, but with some differences. Instead of creating a new object from scratch, you can clone an existing object and modify its properties as needed. This can save time and reduce code duplication, especially when dealing with complex objects or object hierarchies.
+
+### Here are some specific situations where the Prototype pattern might be useful:
+
+- When creating new objects is complex: If creating a new object requires a lot of initialization code or configuration, it can be more efficient to clone an existing object and modify its properties instead of starting from scratch.
+
+- When you need to avoid subclassing: Subclassing can lead to a large number of specialized classes that can be difficult to manage. The Prototype pattern allows you to create new objects without creating new classes, which can simplify your codebase.
+
+- When you need to minimize memory usage: Creating new objects can be memory-intensive, especially if they contain a lot of data or are part of a large object hierarchy. Cloning an existing object can be more memory-efficient, since you're only creating a copy of the object's data instead of creating a new object from scratch.
+
+- When you need to create objects dynamically: The Prototype pattern allows you to create new objects at runtime based on user input or other dynamic factors. This can be useful in situations where you don't know the exact type of object you need to create until runtime.
+
+
+```
+        var person = new Person
+        {
+            Name = "John",
+            Age = 30,
+            Address = new Address
+            {
+                Street = "123 Main St",
+                City = "Anytown",
+                State = "CA"
+            }
+        };
+
+        var clonedPerson = person.Clone();
+
+        clonedPerson.Name = "Jane";
+        clonedPerson.Age = 25;
+        clonedPerson.Address.Street = "456 Elm St";
+```
