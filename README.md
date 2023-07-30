@@ -78,3 +78,26 @@ Car sportsCar = sportsCarBuilder.GetCar();
         clonedPerson.Age = 25;
         clonedPerson.Address.Street = "456 Elm St";
 ```
+
+-----------------------------------------------------------------------------------------------------------------
+
+## Singleton
+
+#### By using the Singleton pattern, we ensure that there is only one instance of the CurrencyConverter class throughout the application, allowing us to maintain a centralized and consistent set of exchange rates.
+
+
+```
+CurrencyConverter converter = CurrencyConverter.Instance;
+
+converter.SetExchangeRate("USD", 1.0m);
+converter.SetExchangeRate("EUR", 0.85m);
+converter.SetExchangeRate("GBP", 0.72m);
+
+decimal amount = 100.0m;
+string fromCurrency = "USD";
+string toCurrency = "EUR";
+
+decimal convertedAmount = converter.ConvertCurrency(amount, fromCurrency, toCurrency);
+
+Console.WriteLine($"{amount} {fromCurrency} = {convertedAmount} {toCurrency}");
+```
