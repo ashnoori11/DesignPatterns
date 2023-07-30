@@ -4,6 +4,7 @@ using DesignPatterns.Factory;
 using DesignPatterns.Builder.Models;
 using DesignPatterns.Builder;
 using DesignPatterns.Prototype;
+using DesignPatterns.Singleton;
 
 namespace DesignPatterns; // Note: actual namespace depends on the project name.
 
@@ -66,6 +67,22 @@ public class Program
         // Output the original and cloned person objects.
         Console.WriteLine("Original: " + person);
         Console.WriteLine("Cloned: " + clonedPerson);
+        #endregion
+
+        #region singleton
+        CurrencyConverter converter = CurrencyConverter.Instance;
+
+        converter.SetExchangeRate("USD", 1.0m);
+        converter.SetExchangeRate("EUR", 0.85m);
+        converter.SetExchangeRate("GBP", 0.72m);
+
+        decimal amount = 100.0m;
+        string fromCurrency = "USD";
+        string toCurrency = "EUR";
+
+        decimal convertedAmount = converter.ConvertCurrency(amount, fromCurrency, toCurrency);
+
+        Console.WriteLine($"{amount} {fromCurrency} = {convertedAmount} {toCurrency}");
         #endregion
     }
 }
