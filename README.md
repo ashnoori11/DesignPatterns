@@ -101,3 +101,26 @@ decimal convertedAmount = converter.ConvertCurrency(amount, fromCurrency, toCurr
 
 Console.WriteLine($"{amount} {fromCurrency} = {convertedAmount} {toCurrency}");
 ```
+
+-----------------------------------------------------------------------------------------------------------------
+
+## Adapter
+
+- In this example, we have a ThirdPartyPaymentGateway class that represents a third-party payment gateway library. It has a method Pay that accepts a double amount.
+
+- The IPaymentProcessor interface represents the target interface that our client code expects. It defines a ProcessPayment method that accepts a decimal amount.
+
+- The PaymentGatewayAdapter class implements the IPaymentProcessor interface and acts as an adapter between our client code and the ThirdPartyPaymentGateway. It takes an instance of the ThirdPartyPaymentGateway in its constructor and converts the decimal amount to a double before calling the Pay method on the third-party payment gateway.
+
+- In the client code, we create an instance of the ThirdPartyPaymentGateway, then create an instance of the PaymentGatewayAdapter, passing the ThirdPartyPaymentGateway instance to it. Finally, we call the ProcessPayment method on the adapter, which internally calls the Pay method of the ThirdPartyPaymentGateway, effectively adapting the third-party payment gateway to our target interface.
+
+```
+        // Create an instance of the third-party payment gateway
+        ThirdPartyPaymentGateway paymentGateway = new ThirdPartyPaymentGateway();
+
+        // Create an instance of the adapter, passing the third-party payment gateway
+        IPaymentProcessor paymentProcessor = new PaymentGatewayAdapter(paymentGateway);
+
+        // Call the process payment method on the adapter
+        paymentProcessor.ProcessPayment(100.50m);
+```
