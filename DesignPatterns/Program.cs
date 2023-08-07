@@ -5,6 +5,8 @@ using DesignPatterns.Builder.Models;
 using DesignPatterns.Builder;
 using DesignPatterns.Prototype;
 using DesignPatterns.Singleton;
+using DesignPatterns.Adapter.Interface;
+using DesignPatterns.Adapter;
 
 namespace DesignPatterns; // Note: actual namespace depends on the project name.
 
@@ -83,6 +85,17 @@ public class Program
         decimal convertedAmount = converter.ConvertCurrency(amount, fromCurrency, toCurrency);
 
         Console.WriteLine($"{amount} {fromCurrency} = {convertedAmount} {toCurrency}");
+        #endregion
+
+        #region Adapter
+        // Create an instance of the third-party payment gateway
+        ThirdPartyPaymentGateway paymentGateway = new ThirdPartyPaymentGateway();
+
+        // Create an instance of the adapter, passing the third-party payment gateway
+        IPaymentProcessor paymentProcessor = new PaymentGatewayAdapter(paymentGateway);
+
+        // Call the process payment method on the adapter
+        paymentProcessor.ProcessPayment(100.50m);
         #endregion
     }
 }
