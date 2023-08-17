@@ -7,6 +7,8 @@ using DesignPatterns.Prototype;
 using DesignPatterns.Singleton;
 using DesignPatterns.Adapter.Interface;
 using DesignPatterns.Adapter;
+using DesignPatterns.Bridge.Contracts;
+using DesignPatterns.Bridge;
 
 namespace DesignPatterns; // Note: actual namespace depends on the project name.
 
@@ -96,6 +98,22 @@ public class Program
 
         // Call the process payment method on the adapter
         paymentProcessor.ProcessPayment(100.50m);
+        #endregion
+
+        #region Bridge
+        Console.WriteLine("***Bridge Pattern Demo***\n");
+
+        //a square with red color
+        Console.WriteLine("\nCreating a Rectangle object with red color...");
+        Shape rectangleShape = new Rectangle(new RedColor());
+        rectangleShape.DrawShape(20);
+
+        //a circle with green color
+        Console.WriteLine("\n\nCreating a Circle object with green color...");
+        Shape circleShape = new Circle(new GreenColor());
+        circleShape.DrawShape(10);
+
+        Console.ReadLine();
         #endregion
     }
 }
