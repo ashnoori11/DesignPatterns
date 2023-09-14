@@ -9,6 +9,7 @@ using DesignPatterns.Adapter.Interface;
 using DesignPatterns.Adapter;
 using DesignPatterns.Bridge.Contracts;
 using DesignPatterns.Bridge;
+using DesignPatterns.Composite;
 
 namespace DesignPatterns; // Note: actual namespace depends on the project name.
 
@@ -114,6 +115,26 @@ public class Program
         circleShape.DrawShape(10);
 
         Console.ReadLine();
+        #endregion
+
+        #region Composite
+        // Build a composite tree structure
+        DesignPatterns.Composite.Composite computer = new DesignPatterns.Composite.Composite("Computer");
+        DesignPatterns.Composite.Composite cabinet = new DesignPatterns.Composite.Composite("Cabinet");
+        DesignPatterns.Composite.Composite peripherals = new DesignPatterns.Composite.Composite("Peripherals");
+
+        computer.Add(cabinet);
+        computer.Add(peripherals);
+
+        cabinet.Add(new Leaf("Mother Board"));
+        cabinet.Add(new Leaf("CPU"));
+        cabinet.Add(new Leaf("Hard Disk"));
+
+        peripherals.Add(new Leaf("Mouse"));
+        peripherals.Add(new Leaf("Keyboard"));
+
+        // Display the composite tree structure
+        computer.Display(1);
         #endregion
     }
 }
