@@ -145,3 +145,34 @@ Console.WriteLine($"{amount} {fromCurrency} = {convertedAmount} {toCurrency}");
         Shape circleShape = new Circle(new GreenColor());
         circleShape.DrawShape(10);
 ```
+
+----------------------------------------------------------------------------------------------------------------
+
+## Composite
+
+- The **Composite Design Pattern** is a structural design pattern that allows us to compose objects into tree structures to represent part-whole hierarchies. It lets clients treat individual objects and compositions of objects uniformly. In other words, it composes objects in the form of a tree structure to represent part as well as a whole hierarchy. This design pattern is used when we need to treat a group of objects in a similar way as a single object.
+
+- Let's say we want to assemble a computer. As we know, a computer is made up of several parts or elements integrated together. Everything is an object here, such as Computer, Cabinet, Peripherals, Hard Disk, Mother Board, Mouse, Keyboard, CPU, RAM, etc. All these objects are of the same type i.e., Electronics type.
+
+- A composite object is an object that contains other objects. The point that you need to remember is that a composite component may also contain other composite objects. The object that does not contain any other objects is simply treated as a leaf object. So in our example, Computer, Cabinet, Peripherals, and Mother Boards are composite objects while Hard Disk, CPU, RAM, Mouse, and Keyboard are the leaf objects.
+
+
+```
+        // Build a composite tree structure
+        DesignPatterns.Composite.Composite computer = new DesignPatterns.Composite.Composite("Computer");
+        DesignPatterns.Composite.Composite cabinet = new DesignPatterns.Composite.Composite("Cabinet");
+        DesignPatterns.Composite.Composite peripherals = new DesignPatterns.Composite.Composite("Peripherals");
+
+        computer.Add(cabinet);
+        computer.Add(peripherals);
+
+        cabinet.Add(new Leaf("Mother Board"));
+        cabinet.Add(new Leaf("CPU"));
+        cabinet.Add(new Leaf("Hard Disk"));
+
+        peripherals.Add(new Leaf("Mouse"));
+        peripherals.Add(new Leaf("Keyboard"));
+
+        // Display the composite tree structure
+        computer.Display(1);
+```
