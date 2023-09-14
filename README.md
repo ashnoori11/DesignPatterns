@@ -124,3 +124,24 @@ Console.WriteLine($"{amount} {fromCurrency} = {convertedAmount} {toCurrency}");
         // Call the process payment method on the adapter
         paymentProcessor.ProcessPayment(100.50m);
 ```
+
+------------------------------------------------------------------------------------------------------------------
+
+## Bridge
+
+- The Bridge Design Pattern is a structural design pattern that decouples an abstraction from its implementation so that the two can vary independently.
+-  It falls under the category of Structural Design Pattern.
+-   The Bridge Design Pattern allows both Abstraction and Implementation to be developed independently and the client code can only access the Abstraction part without being concerned about the Implementation part.
+-    The Bridge Design Pattern separates the Abstraction hierarchy and the Implementation hierarchy into two different layers so that change in one Hierarchy will not affect the development or functionality of another Hierarchy1.
+
+```
+        //a square with red color
+        Console.WriteLine("\nCreating a Rectangle object with red color...");
+        Shape rectangleShape = new Rectangle(new RedColor());
+        rectangleShape.DrawShape(20);
+
+        //a circle with green color
+        Console.WriteLine("\n\nCreating a Circle object with green color...");
+        Shape circleShape = new Circle(new GreenColor());
+        circleShape.DrawShape(10);
+```
