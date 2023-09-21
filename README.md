@@ -176,3 +176,58 @@ Console.WriteLine($"{amount} {fromCurrency} = {convertedAmount} {toCurrency}");
         // Display the composite tree structure
         computer.Display(1);
 ```
+
+
+----------------------------------------------------------------------------------------------------------------
+
+## Decorator
+
+- The **Decorator Design Pattern** in C# is a **structural design pattern** that allows you to **dynamically add new functionalities** to an existing object without altering its structure. It acts as a wrapper to the existing class, enabling you to add additional functionalities at runtime without impacting the existing ones¹.
+
+To understand this pattern, let's consider an example. Imagine you have a `Circle` object with a `Draw` method that draws a circle¹. Now, you want to add some color to the `Circle` object without changing its structure or modifying the existing `Draw` method¹. In this case, you can use the Decorator Design Pattern.
+
+You can introduce a `CircleDecorator` object that wraps the `Circle` object. The `CircleDecorator` object also has a `Draw` method. When the `Draw` method of the `CircleDecorator` is called, it first invokes the `Draw` method of the `Circle` object to draw the circle and then sets the color of the circle using its own `SetColor` method¹. This way, you can add new functionalities to the `Circle` object without affecting its structure¹.
+
+Here's a simplified class diagram of the Decorator Design Pattern:
+
+```
++-----------------+
+|    Component    |
++-----------------+
+|   +Operation()  |
++-----------------+
+        /\
+        |
++-----------------+
+|    Decorator    |
++-----------------+
+| +Component      |
+| +Operation()    |
++-----------------+
+        /\
+        |
++-----------------+
+|ConcreteComponent|
++-----------------+
+| +Operation()    |
++-----------------+
+        /\
+        |
++-----------------+
+|ConcreteDecorator|
++-----------------+
+| +Component      |
+| +Operation()    |
+| +AddedBehavior()|
++-----------------+
+```
+
+- The `Component` class defines the interface for both the `ConcreteComponent` and `Decorator` classes. The `ConcreteComponent` class represents the original object to which new functionalities can be added. The `Decorator` class is the base class for all decorators and holds a reference to the `Component` object. The `ConcreteDecorator` class adds new functionalities to the `ConcreteComponent` object¹.
+
+- The Decorator Design Pattern is useful when you want to add new functionalities to an object dynamically at runtime without modifying its structure.
+- It provides an alternative approach to inheritance for modifying the behavior of an object¹.
+
+- https://www.c-sharpcorner.com/article/quick-start-on-decorator-design-pattern/.
+- https://dofactory.com/net/decorator-design-pattern.
+- https://books.google.com/books/about/Design_Patterns_in_C.html?id=63hhDwAAQBAJ.
+
