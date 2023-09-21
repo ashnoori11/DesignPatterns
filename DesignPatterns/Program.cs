@@ -10,6 +10,8 @@ using DesignPatterns.Adapter;
 using DesignPatterns.Bridge.Contracts;
 using DesignPatterns.Bridge;
 using DesignPatterns.Composite;
+using DesignPatterns.Decorator.Contracts;
+using DesignPatterns.Decorator;
 
 namespace DesignPatterns; // Note: actual namespace depends on the project name.
 
@@ -111,7 +113,7 @@ public class Program
 
         //a circle with green color
         Console.WriteLine("\n\nCreating a Circle object with green color...");
-        Shape circleShape = new Circle(new GreenColor());
+        Shape circleShape = new DesignPatterns.Bridge.Circle(new GreenColor());
         circleShape.DrawShape(10);
 
         Console.ReadLine();
@@ -135,6 +137,17 @@ public class Program
 
         // Display the composite tree structure
         computer.Display(1);
+        #endregion
+
+        #region Decorator
+        // Create a Circle object.
+        IShape circle = new DesignPatterns.Decorator.Circle();
+
+        // Wrap the Circle object with a ColorDecorator.
+        IShape coloredCircle = new ColorDecorator(circle, "red");
+
+        // Draw the colored circle.
+        coloredCircle.Draw();
         #endregion
     }
 }
