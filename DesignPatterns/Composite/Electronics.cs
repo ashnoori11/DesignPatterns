@@ -1,6 +1,6 @@
 ﻿namespace DesignPatterns.Composite;
 
-public class Electronics
+public abstract class Electronics
 {
     public string Name { get; set; }
     public abstract void Add(Electronics component);
