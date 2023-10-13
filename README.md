@@ -231,3 +231,27 @@ Here's a simplified class diagram of the Decorator Design Pattern:
 - https://dofactory.com/net/decorator-design-pattern.
 - https://books.google.com/books/about/Design_Patterns_in_C.html?id=63hhDwAAQBAJ.
 
+
+----------------------------------------------------------------------------------------------------------------
+
+## Facade
+
+- The Facade Design Pattern can be used here to simplify processes by providing a unified interface to these classes in a subsystem.
+-  The Facade (usually a wrapper) class sits on top of a group of subsystems and allows them to communicate in a unified manner.
+-  This makes it easier for clients to use these classes without having to worry about their complexities.
+
+
+```
+        // Create an instance of the Facade class
+        ECommerceFacade ecommerce = new ECommerceFacade();
+
+        // Add a product
+        ecommerce.AddProduct("Product 1", 100.0);
+
+        // Place an order
+        ecommerce.PlaceOrder("Customer 1", "Product 1");
+
+        // Process payment
+        ecommerce.ProcessPayment("Customer 1", 100.0);
+```
+
