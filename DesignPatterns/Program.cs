@@ -20,6 +20,7 @@ using System.IO;
 using System.Net.NetworkInformation;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Claims;
+using DesignPatterns.ChainOfResponsibility;
 
 namespace DesignPatterns; // Note: actual namespace depends on the project name.
 
@@ -207,6 +208,17 @@ public class Program
         //https://www.codingninjas.com/studio/library/difference-between-abstract-class-and-interface-in-c-sharp.
         //https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract.
         //https://computinglearner.com/abstract-class-in-object-oriented-programming/.
+        #endregion
+
+        #region ChainOfResponsibility
+        var chain = new Chain();
+        chain.Process(new Number(0));
+        chain.Process(new Number(10));
+        chain.Process(new Number(-10));
+
+        // The Chain of Responsibility pattern is a behavioral design pattern that allows a request to be passed through a chain of objects until it is handled by an 
+        // object that can process it. This pattern is used to achieve loose coupling in software design where a request from the client is passed to a chain of objects to process them.  
+        // Later, the object in the chain will decide themselves who will be processing the request and whether the request is required to be sent to the next object in the chain or not.
         #endregion
     }
 }
