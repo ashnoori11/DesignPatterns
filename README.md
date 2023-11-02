@@ -255,3 +255,14 @@ Here's a simplified class diagram of the Decorator Design Pattern:
         ecommerce.ProcessPayment("Customer 1", 100.0);
 ```
 
+----------------------------------------------------------------------------------------------------------------
+
+## ChainOfResponsibility
+
+- This pattern is applicable when:
+
+- You want to decouple a request’s sender and receiver.
+- Multiple objects, determined at runtime, are candidates to handle a request.
+- You don’t want to specify handlers explicitly in your code.
+- You want to issue a request to one of several objects without specifying the receiver explicitly.
+- This pattern is recommended when multiple objects can handle a request and the handler doesn’t have to be a specific object. Also, the handler is determined at runtime.
